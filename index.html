@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Titanic Survival Predictor</title>
+    <style>
+        body { font-family: Arial; margin: 40px; }
+        .container { max-width: 400px; margin: auto; }
+        input, select { width: 100%; padding: 8px; margin: 5px 0; }
+        button { padding: 10px; width: 100%; background: #4CAF50; color: white; border: none; }
+        h2 { text-align: center; }
+        .result { text-align: center; font-weight: bold; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Titanic Survival Predictor</h2>
+        <form method="POST">
+            <label>Pclass:</label>
+            <select name="pclass">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+            <label>Sex:</label>
+            <select name="sex">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+            <label>Age:</label>
+            <input type="number" name="age" step="0.1" required>
+            <label>SibSp (siblings/spouses aboard):</label>
+            <input type="number" name="sibsp" required>
+            <label>Fare:</label>
+            <input type="number" name="fare" step="0.01" required>
+            <button type="submit">Predict</button>
+        </form>
+        {% if prediction %}
+            <div class="result">Prediction: {{ prediction }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
